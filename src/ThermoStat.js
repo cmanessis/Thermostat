@@ -33,7 +33,17 @@ Thermostat.prototype.resetButton = function(){
 
 Thermostat.prototype.psmButton = function(){
   this._PowersaverMode = !this._PowersaverMode;
-  if (this._temp > 25) {
-      this._temp = 25;
+  if (this._defaultTemp > 25) {
+      this._defaultTemp = 25;
   };
+};
+
+Thermostat.prototype.color = function(){
+  if(this._defaultTemp < 18){
+    return 'green';
+  };
+  if(this._defaultTemp < 25){
+    return 'yellow';
+  };
+  return 'red';
 };

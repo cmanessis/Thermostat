@@ -65,7 +65,7 @@ describe('Thermostat', function() {
   });
 
 
-describe('Power saving features', function() {
+describe("Power saving features", function() {
 
     it("Can be turned off", function() {
       thermostat.psm();
@@ -86,6 +86,29 @@ describe('Power saving features', function() {
       };
       expect(thermostat.temp()).toEqual(25);
     });
+  });
 
+  describe("Color display features", function(){
+
+    it("is green when the temp less than 18 degrees", function(){
+      for (i = 0; i < 20; i++){
+        thermostat.downButton();
+      };
+      expect(thermostat.color()).toBe('green');
+    });
+  //
+  //   it("is yellow when the temp is less than 25 degrees", function(){
+  //     for (i = 0; i < 2; i++{
+  //       thermostat.upButton();
+  //     };
+  //     expect(thermostat.color()).toBe('yellow');
+  //   });
+  //
+  //   it("is red when the temp is 25 degrees or above", function(){
+  //     for (i = 0; i < 20; i++){
+  //       thermostat.upButton();
+  //     };
+  //     expect(thermostat.color()).toBe('red');
+  //   });
   });
 });
