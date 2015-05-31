@@ -1,7 +1,6 @@
 var Thermostat = function(){
   this._defaultTemp = 20;
   this._PowersaverMode = true;
-  this._ecoLimit = 25;
 };
 
 Thermostat.prototype.temp = function(){
@@ -9,13 +8,32 @@ Thermostat.prototype.temp = function(){
 };
 
 Thermostat.prototype.psm = function(){
-  return this._PowersaverMode;
+  return this._PowersaverMode
 };
 
 Thermostat.prototype.upButton = function(){
-  return this._defaultTemp ++
+  if (this._PowersaverMode && this._defaultTemp < 25) {
+    this._defaultTemp ++;
+  };
+  if (!this._PowersaverMode && this._defaultTemp < 32) {
+    this._defaultTemp ++;
+  };
 };
 
 Thermostat.prototype.downButton = function(){
-  return this._defaultTemp --
+  if (this._defaultTemp > 10){
+   this._defaultTemp --;
+ };
+};
+
+Thermostat.prototype.resetButton = function(){
+  return this._defaultTemp
+};
+
+
+Thermostat.prototype.psmButton = function(){
+  this._PowersaverMode = !this._PowersaverMode;
+  if (this._temp > 25) {
+      this._temp = 25;
+  };
 };
