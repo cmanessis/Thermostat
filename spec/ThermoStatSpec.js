@@ -96,19 +96,19 @@ describe("Power saving features", function() {
       };
       expect(thermostat.color()).toBe('green');
     });
-  //
-  //   it("is yellow when the temp is less than 25 degrees", function(){
-  //     for (i = 0; i < 2; i++{
-  //       thermostat.upButton();
-  //     };
-  //     expect(thermostat.color()).toBe('yellow');
-  //   });
-  //
-  //   it("is red when the temp is 25 degrees or above", function(){
-  //     for (i = 0; i < 20; i++){
-  //       thermostat.upButton();
-  //     };
-  //     expect(thermostat.color()).toBe('red');
-  //   });
+
+    it("is yellow when the temp is less than 25 degrees", function(){
+      for (i = 0; i < 2; i++){
+        thermostat.upButton();
+      };
+      expect(thermostat.color()).toBe('yellow');
+    });
+
+    it("is red when the temp is 25 degrees or above", function(){
+      for (i = 0; i < 20; i++){
+        thermostat.upButton();
+      };
+      expect(thermostat.color()).toBe('red');
+    });
   });
 });

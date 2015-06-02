@@ -1,10 +1,10 @@
 var Thermostat = function(){
-  this._defaultTemp = 20;
+  this._Temp = 20;
   this._PowersaverMode = true;
 };
 
 Thermostat.prototype.temp = function(){
-  return this._defaultTemp;
+  return this._Temp;
 };
 
 Thermostat.prototype.psm = function(){
@@ -12,37 +12,37 @@ Thermostat.prototype.psm = function(){
 };
 
 Thermostat.prototype.upButton = function(){
-  if (this._PowersaverMode && this._defaultTemp < 25) {
-    this._defaultTemp ++;
+  if (this._PowersaverMode && this._Temp < 25) {
+    this._Temp ++;
   };
-  if (!this._PowersaverMode && this._defaultTemp < 32) {
-    this._defaultTemp ++;
+  if (!this._PowersaverMode && this._Temp < 32) {
+    this._Temp ++;
   };
 };
 
 Thermostat.prototype.downButton = function(){
-  if (this._defaultTemp > 10){
-   this._defaultTemp --;
+  if (this._Temp > 10){
+   this._Temp --;
  };
 };
 
 Thermostat.prototype.resetButton = function(){
-  return this._defaultTemp
+  return this._Temp
 };
 
 
 Thermostat.prototype.psmButton = function(){
   this._PowersaverMode = !this._PowersaverMode;
-  if (this._defaultTemp > 25) {
-      this._defaultTemp = 25;
+  if (this._Temp > 25) {
+      this._Temp = 25;
   };
 };
 
 Thermostat.prototype.color = function(){
-  if(this._defaultTemp < 18){
+  if(this._Temp < 18){
     return 'green';
   };
-  if(this._defaultTemp < 25){
+  if(this._Temp < 25){
     return 'yellow';
   };
   return 'red';
